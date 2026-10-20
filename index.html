@@ -28,7 +28,7 @@
         /* ================= 2. LAYOUT & SCREENS ================= */
         #app-wrapper { position: relative; width: 100%; height: 100%; height: 100dvh; background: radial-gradient(circle at 50% 20%, #162a5f 0%, #0c183a 100%); overflow-y: hidden; overflow-x: hidden; -webkit-overflow-scrolling: touch; transform: translateZ(0); }
         #app-wrapper.allow-scroll { overflow-y: auto; }
-        .screen { position: fixed; top: 0; left: 0; height: 100vh; height: 100dvh; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; z-index: 20; overflow: hidden; background: radial-gradient(circle at center, #162a5f 0%, #0c183a 100%); }
+        .screen { position: fixed; top: 0; left: 0; right: 0; bottom: 0; height: 100%; height: 100dvh; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; z-index: 20; overflow: hidden; background: radial-gradient(circle at center, #162a5f 0%, #0c183a 100%); }
         .hidden { display: none !important; }
         .main-content { width: 100%; position: relative; z-index: 10; }
 
@@ -82,7 +82,7 @@
         @keyframes arrowScroll { 0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px) translateZ(0); } 50% { opacity: 1; } 100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px) translateZ(0); } }
 
         .content-body { padding: 10px 20px 140px 20px; width: 100%; max-width: 480px; margin: 0 auto; }
-        section { margin-bottom: 45px; border-bottom: 1px solid rgba(231, 226, 206, 0.12); padding-bottom: 50px; opacity: 0; transform: translateY(25px) translateZ(0); transition: opacity 0.8s ease, transform 0.8s ease; width: 100%; will-change: opacity, transform; content-visibility: auto; contain-intrinsic-size: auto 500px; }
+        section { margin-bottom: 45px; border-bottom: 1px solid rgba(231, 226, 206, 0.12); padding-bottom: 50px; opacity: 0; transform: translateY(25px) translateZ(0); transition: opacity 0.8s ease, transform 0.8s ease; width: 100%; will-change: opacity, transform; }
         section.closing-section-box { opacity: 1 !important; transform: none !important; padding-bottom: 40px !important; }
         section:last-child { border: none; margin-bottom: 0; }
         section.reveal-active { opacity: 1; transform: translateY(0) translateZ(0); }
@@ -137,7 +137,7 @@
         .polaroid-caption { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 11pt; color: #E7E2CE; margin-top: 12px; text-align: center; text-shadow: 0 0 6px rgba(231,226,206,0.35); }
 
         /* ================= 9. MUSIC PLAYER & WISHES ================= */
-        .ios-player-container { background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.018)); border: 1px solid rgba(231,226,206,0.22); border-radius: 30px; padding: 22px; width: 100%; max-width: 290px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; box-shadow: 0 22px 50px rgba(0,0,0,0.45), inset 0 0 22px rgba(231,226,206,0.035); backdrop-filter: blur(12px); }
+        .ios-player-container { background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.018)); border: 1px solid rgba(231,226,206,0.22); border-radius: 30px; padding: 22px; width: 100%; max-width: 290px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; box-shadow: 0 22px 50px rgba(0,0,0,0.45), inset 0 0 22px rgba(231,226,206,0.035); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         .player-album-art { width: 190px; height: 190px; background: rgba(255,255,255,0.05); border-radius: 18px; overflow: hidden; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 28px rgba(0,0,0,0.55); border: 1px solid rgba(231,226,206,0.18); }
         .player-album-art img { width: 100%; height: 100%; object-fit: cover; display: none; border-radius: 18px; }
         .timeline-slider { -webkit-appearance: none; width: 100%; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.15); outline: none; cursor: pointer; }
@@ -167,21 +167,21 @@
         .jar-msg.active { opacity: 1; filter: blur(0); }
 
         /* ================= 10. MODALS & POPUPS ================= */
-        .modal-overlay, .preview-overlay, .closing-box-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(12, 24, 58, 0.8); display: flex; align-items: center; justify-content: center; z-index: 50000; opacity: 0; pointer-events: none; transition: opacity 0.25s ease, backdrop-filter 0.25s ease; will-change: opacity; }
+        .modal-overlay, .preview-overlay, .closing-box-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; height: 100dvh; background: rgba(12, 24, 58, 0.8); display: flex; align-items: center; justify-content: center; z-index: 50000; opacity: 0; pointer-events: none; transition: opacity 0.25s ease, backdrop-filter 0.25s ease; will-change: opacity; }
         .modal-overlay.active, .preview-overlay.active, .closing-box-overlay.active { opacity: 1; pointer-events: auto; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         .custom-modal { background: rgba(255, 255, 255, 0.05); padding: 22px 18px 18px 18px; border-radius: 25px; border: 1px solid rgba(231, 226, 206, 0.25); box-shadow: 0 25px 55px rgba(0, 0, 0, 0.65); max-width: 280px; width: 85%; text-align: center; transform: scale(0.9) translateZ(0); opacity: 0; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.25s ease; will-change: transform, opacity; }
         .modal-overlay.active .custom-modal { transform: scale(1) translateZ(0); opacity: 1; }
         .modal-msg { font-family: 'Comfortaa', sans-serif; font-size: 10pt; color: #E7E2CE; line-height: 1.5; margin-bottom: 18px; text-shadow: 0 0 6px rgba(231,226,206,0.35); }
         .modal-btn { background: rgba(231, 226, 206, 0.12); border: 1px solid rgba(231, 226, 206, 0.35); color: #F5F4F0; font-family: 'Cinzel', serif; font-size: 9pt; padding: 7px 22px; border-radius: 18px; cursor: pointer; transition: background 0.2s; }
         .modal-btn:active { background: rgba(231, 226, 206, 0.35); }
-        .preview-card { background: rgba(20, 35, 75, 0.9); border: 1px solid rgba(231,226,206,0.35); padding: 14px 14px 24px 14px; border-radius: 14px; max-width: 290px; width: 85%; position: relative; box-shadow: 0 28px 65px rgba(0,0,0,0.75); backdrop-filter: blur(14px); }
+        .preview-card { background: rgba(20, 35, 75, 0.9); border: 1px solid rgba(231,226,206,0.35); padding: 14px 14px 24px 14px; border-radius: 14px; max-width: 290px; width: 85%; position: relative; box-shadow: 0 28px 65px rgba(0,0,0,0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
         .preview-img-wrap { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: #000; }
         .preview-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
         .close-preview-btn { position: absolute; top: -16px; right: -16px; width: 32px; height: 32px; background: rgba(20,35,75,0.95); border: 1px solid rgba(231,226,206,0.45); color: #E7E2CE; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.45); transition: background 0.2s; }
         .close-preview-btn:active { background: rgba(231, 226, 206, 0.35); }
         .btn-surprise { background: linear-gradient(135deg, rgba(231,226,206,0.28), rgba(255,255,255,0.07)); border: 1px solid rgba(231,226,206,0.5); color: #E7E2CE; padding: 14px 30px; border-radius: 25px; font-family: 'Cinzel', serif; font-size: 9.5pt; letter-spacing: 2px; cursor: pointer; box-shadow: 0 12px 35px rgba(0,0,0,0.45), inset 0 0 18px rgba(231,226,206,0.12); transition: all 0.3s ease; text-shadow: 0 0 10px rgba(231,226,206,0.45); will-change: transform; position: relative; z-index: 50; }
         .btn-surprise:hover { background: linear-gradient(135deg, rgba(231,226,206,0.38), rgba(255,255,255,0.14)); box-shadow: 0 18px 45px rgba(0,0,0,0.55), 0 0 25px rgba(231,226,206,0.45); border-color: rgba(231,226,206,0.8); transform: translateY(-2px) translateZ(0); }
-        .closing-card { background: rgba(20, 35, 75, 0.92); padding: 35px 20px; border-radius: 32px; border: 1px solid rgba(231,226,206,0.4); max-width: 290px; width: 85%; text-align: center; box-shadow: 0 28px 65px rgba(0,0,0,0.75), inset 0 0 28px rgba(231,226,206,0.06); backdrop-filter: blur(16px); }
+        .closing-card { background: rgba(20, 35, 75, 0.92); padding: 35px 20px; border-radius: 32px; border: 1px solid rgba(231,226,206,0.4); max-width: 290px; width: 85%; text-align: center; box-shadow: 0 28px 65px rgba(0,0,0,0.75), inset 0 0 28px rgba(231,226,206,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         .closing-emoji { font-size: 38pt; margin-bottom: 12px; display: inline-block; filter: drop-shadow(0 0 12px rgba(231,226,206,0.6)); }
         .closing-card h2 { font-family: 'Cinzel', serif; color: #E7E2CE; text-shadow: 0 0 12px rgba(231,226,206,0.45); }
         .btn-close-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(231,226,206,0.3); color: rgba(255,255,255,0.9); font-family: 'Comfortaa', sans-serif; font-size: 9.5pt; padding: 10px 28px; border-radius: 18px; cursor: pointer; transition: background 0.2s; }
@@ -424,6 +424,17 @@
             let wishIndex = 0;
             const audio = document.getElementById('bg-audio');
 
+            // --- AUDIO UNLOCKER UNTUK SAFARI IPHONE ---
+            function unlockAudio() {
+                if (audio) {
+                    audio.play().then(() => { audio.pause(); }).catch(() => {});
+                }
+                document.removeEventListener('touchstart', unlockAudio);
+                document.removeEventListener('click', unlockAudio);
+            }
+            document.addEventListener('touchstart', unlockAudio, { once: true });
+            document.addEventListener('click', unlockAudio, { once: true });
+
             /* ================= INITIALIZATION & NAMES ================= */
             function applyDynamicNames() {
                 document.getElementById('display-recipient-sub').innerText = recipientName;
@@ -448,9 +459,11 @@
                 }, 400);
             }
 
+            /* ================= PRELOADER DENGAN FALLBACK KHUSUS IOS ================= */
             function preloadAssets() {
                 const percentText = document.getElementById('loading-percent');
                 const fillBar = document.getElementById('loading-bar-fill');
+                
                 const update = () => {
                     loaded++;
                     const p = Math.min(Math.floor((loaded / assets.length) * 100), 100);
@@ -463,13 +476,23 @@
                         }, 400);
                     }
                 };
+
                 assets.forEach(src => {
                     if (src.endsWith('.mp3')) {
+                        let isDone = false;
+                        const handleAudioDone = () => { if (!isDone) { isDone = true; update(); } };
                         const a = new Audio();
-                        a.oncanplaythrough = update; a.onerror = update; a.src = src;
+                        a.preload = 'metadata';
+                        a.onloadedmetadata = handleAudioDone;
+                        a.onerror = handleAudioDone;
+                        // Timeout fallback agar tidak pernah macet di iPhone
+                        setTimeout(handleAudioDone, 600);
+                        a.src = src;
                     } else {
                         const img = new Image();
-                        img.onload = update; img.onerror = update; img.src = src;
+                        img.onload = update;
+                        img.onerror = update;
+                        img.src = src;
                     }
                 });
             }
@@ -498,19 +521,24 @@
                 const lid = document.getElementById('giftLid');
                 const screenGift = document.getElementById('screen-gift');
                 let startY = 0, isDragging = false;
+                
                 const start = e => { isDragging = true; startY = e.touches ? e.touches[0].clientY : e.clientY; };
+                
                 const move = e => {
                     if (!isDragging) return;
+                    if (e.cancelable) e.preventDefault(); // Mencegah Safari ikutan scroll
                     let deltaY = (e.touches ? e.touches[0].clientY : e.clientY) - startY;
                     if (deltaY > 0) deltaY = 0;
                     lid.style.transform = `translateY(${deltaY}px)`;
                     if (deltaY < -90) openGift();
                 };
+                
                 const end = () => {
                     if (!isDragging) return; isDragging = false;
                     lid.style.transform = "translateY(0)";
                     lid.style.transition = "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
                 };
+                
                 function openGift() {
                     isDragging = false;
                     lid.style.transition = "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s";
@@ -519,11 +547,12 @@
                     setTimeout(() => {
                         document.getElementById('screen-gift').classList.add('hidden');
                         document.getElementById('screen-main').classList.remove('hidden');
-                        document.getElementById('app-wrapper').classList.add('allow-scroll'); // Mengaktifkan scroll hanya setelah kado terbuka
+                        document.getElementById('app-wrapper').classList.add('allow-scroll');
                         initScrollAnimation();
                         selectTrack('Moonlight', 'Ariana Grande', 't1', 'Ariana-grande-Moonlight.jpg', 'Ariana-grande-Moonlight.mp3');
                     }, 550);
                 }
+                
                 lid.addEventListener('touchstart', start, { passive: true });
                 screenGift.addEventListener('touchmove', move, { passive: false });
                 screenGift.addEventListener('touchend', end);
